@@ -1,0 +1,488 @@
+/* =========================================
+   Box-sizing Reset
+========================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* =========================================
+   CSS Reset
+========================================= */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   General Styles
+========================================= */
+body {
+    background-color: #121212; /* Dark Gray Background */
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0; /* Off-White Text */
+}
+
+/* =========================================
+   Dashboard Container
+========================================= */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the container is at least the height of the viewport */
+    width: 100%; /* Occupies full width */
+    padding: 20px; /* Internal spacing */
+    position: relative;
+    overflow: hidden;
+    background-color: #121212; /* Background color */
+}
+
+/* =========================================
+   Header
+========================================= */
+/* Header Container */
+.dashboard-container header {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* Header <h1> Styling */
+.dashboard-container header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff !important; /* Ensures white color with high specificity */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 0.8s ease-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Adds subtle depth */
+}
+
+/* Ensure All Child Elements Within <h1> Are White */
+.dashboard-container header h1 *,
+.dashboard-container header h1 a {
+    color: #ffffff !important; /* Forces white color */
+    text-decoration: none; /* Removes underline from <a> tags if any */
+}
+
+/* Optional: Responsive Font Size for <h1> */
+@media (max-width: 768px) {
+    .dashboard-container header h1 {
+        font-size: 28px; /* Adjusts font size for smaller screens */
+    }
+}
+
+/* =========================================
+   Main Content
+========================================= */
+.dashboard-container main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%; /* Ensure main takes full width */
+    flex-grow: 1; /* Allows main to expand and fill the container */
+}
+
+/* =========================================
+   Sections
+========================================= */
+.dashboard-container section {
+    background: rgba(32, 32, 32, 0.9); /* Darker background for visibility */
+    backdrop-filter: blur(5px);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* =========================================
+   Section Headings
+========================================= */
+.dashboard-container section h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff; /* White for high contrast */
+    position: relative;
+}
+
+/* =========================================
+   Forms
+========================================= */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #ffffff; /* White text for labels */
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1); /* Darker input background */
+    color: #ffffff; /* White text for readability */
+    font-size: 16px;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    background: rgba(255, 255, 255, 0.2); /* Slightly brighter on focus */
+    border-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow instead of blue */
+    outline: none;
+}
+
+.error-message {
+    color: #ff4d4d; /* Bright red for errors */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* =========================================
+   Buttons
+========================================= */
+/* Updated Button Styles: Removed Blue */
+button[type="submit"],
+button {
+    padding: 12px 20px;
+    background-color: #ffffff; /* Changed from blue to white */
+    border: none;
+    border-radius: 5px;
+    color: #121212; /* Changed text color to dark gray for contrast */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Existing width: 100% */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px; /* Added spacing between buttons */
+}
+
+/* Override Button Width for Add New Employee */
+.employee-management button[type="submit"] {
+    width: auto; /* Remove the 100% width */
+    max-width: 200px; /* Set desired maximum width */
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Allow margin auto to center the button */
+}
+
+button[type="submit"]:hover,
+button:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+button[type="submit"]:active,
+button:active {
+    background-color: #c0c0c0; /* Even darker on active */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   Tables
+========================================= */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensures no spacing between cells */
+    border-spacing: 0; /* Ensures no spacing around the table cells */
+    margin-top: 20px;
+    background-color: #121212; /* Match table to the page background to prevent lines */
+}
+
+table thead {
+    background-color: #2c2c2c; /* Dark consistent background */
+    border-bottom: 1px solid rgba(48, 48, 48, 1); /* Ensures header-bottom separation */
+    outline: none; /* Removes any browser default outline */
+}
+
+table thead th {
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff; /* White text for header */
+    text-align: left;
+    border: none; /* Removes default borders */
+    background-color: #2c2c2c; /* Reinforce background color for header cells */
+}
+
+table tbody {
+    outline: none; /* Removes any browser default outline */
+}
+
+table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Soft border between rows */
+}
+
+table tbody td {
+    padding: 12px 15px;
+    font-size: 15px;
+    color: #e0e0e0; /* Light text */
+    border: none; /* Ensures no borders on body cells */
+    background-color: #121212; /* Match row background to prevent any lines */
+}
+
+table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
+}
+
+/* Reset any additional borders or outlines */
+table, thead, tbody, tr, th, td {
+    border: none !important;
+    outline: none !important;
+    background-clip: padding-box; /* Ensure backgrounds don’t bleed outside cells */
+}
+
+/* Scrollbar Styling */
+table tbody {
+    max-height: 400px;
+    overflow-y: auto;
+    display: block;
+}
+
+table thead,
+table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media (max-width: 768px) {
+    .dashboard-container main {
+        flex-direction: column;
+    }
+
+    .dashboard-container section {
+        margin-bottom: 40px;
+    }
+
+    table thead,
+    table tbody tr {
+        display: block;
+    }
+
+    table thead {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    table tbody td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border-bottom: 1px solid rgba(224, 224, 224, 0.1);
+    }
+
+    table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        padding-right: 15px;
+        text-align: left;
+        font-weight: bold;
+        color: #e0e0e0;
+    }
+
+    /* Responsive Button Adjustments */
+    .employee-management button[type="submit"] {
+        max-width: 150px; /* Adjust max-width for smaller screens */
+        padding: 14px 20px; /* Adjust padding for better fit */
+    }
+}
+
+/* =========================================
+   Animations
+========================================= */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate3d(0, 0, 0);
+    }
+}
+
+/* =========================================
+   Enhanced Add New Employee Section
+========================================= */
+.employee-management {
+    background: rgba(0, 0, 0, 0.8); /* Slightly darker semi-transparent background */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    padding: 40px 80px; /* Increased horizontal padding to widen the box */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1), /* Subtle white outer glow */
+                0 0 20px rgba(255, 255, 255, 0.2); /* Enhanced white glow */
+    position: relative;
+    z-index: 2;
+    max-width: 1000px; /* Increased max-width to widen the box */
+    width: 100%; /* Ensure it takes up the full width up to max-width */
+    margin: 0 auto 40px auto; /* Center the box with bottom margin */
+    /* Removed glowPulse animation to eliminate blue */
+    animation: none;
+}
+
+.employee-management h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    animation: fadeInDown 1s ease-out;
+}
+
+.employee-management form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.employee-management .form-group {
+    position: relative;
+}
+
+.employee-management .form-group label {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.employee-management .form-group input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+}
+
+.employee-management .form-group input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff; /* Changed border color from blue to white */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* White glow instead of blue */
+    outline: none;
+}
+
+.employee-management .error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+.employee-management button[type="submit"] {
+    background-color: #ffffff; /* Changed from blue to white */
+    border: none;
+    border-radius: 8px;
+    color: #121212; /* Changed text color to dark gray */
+    padding: 16px 22px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+    width: auto; /* Ensure width is based on content */
+    max-width: 200px; /* Set a max-width */
+    margin: 0 auto; /* Center the button */
+    display: block; /* Allow margin auto to center the button */
+}
+
+.employee-management button[type="submit"]:hover {
+    background-color: #e0e0e0; /* Slightly darker on hover */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+                0 0 10px rgba(224, 224, 224, 0.6); /* White glow instead of blue */
+}
+
+.employee-management button[type="submit"]:active {
+    background-color: #c0c0c0; /* Even darker on active */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+}
+
+/* =========================================
+   Decorative Glows for Add Employee
+========================================= */
+/* Updated Glows: Removed Blue */
+.employee-management::before,
+.employee-management::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.employee-management::before {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.3); /* White glow */
+}
+
+.employee-management::after {
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.2); /* Subtle white glow */
+}
+
+/* =========================================
+   Responsive Adjustments for Add Employee
+========================================= */
+@media (max-width: 768px) {
+    .employee-management {
+        padding: 30px 20px;
+        max-width: 100%; /* Ensure full width on smaller screens */
+    }
+
+    .employee-management h2 {
+        font-size: 28px;
+    }
+
+    .employee-management button[type="submit"] {
+        font-size: 16px;
+        padding: 14px 20px;
+        max-width: 150px; /* Adjust max-width for smaller screens */
+    }
+
+    .employee-management .form-group input {
+        padding: 12px 16px;
+    }
+}

@@ -1,0 +1,300 @@
+
+.outer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+
+.outer-container::before,
+.outer-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05), transparent);
+    animation: rotate 30s linear infinite;
+}
+
+.outer-container::before {
+    width: 800px;
+    height: 800px;
+    top: -300px;
+    left: -300px;
+}
+
+.outer-container::after {
+    width: 800px;
+    height: 800px;
+    bottom: -300px;
+    right: -300px;
+    animation-duration: 35s;
+    animation-direction: reverse;
+}
+
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.37),
+        0 0 10px rgba(255, 255, 255, 0.5); 
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    animation: breathingGlow 3s ease-in-out infinite; 
+    z-index: 1; 
+}
+
+
+.login-container::before,
+.login-container::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+    animation: rotate 20s linear infinite;
+}
+
+.login-container::before {
+    width: 400px;
+    height: 400px;
+    top: -150px;
+    left: -150px;
+}
+
+.login-container::after {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    right: -150px;
+    animation-duration: 25s;
+    animation-direction: reverse;
+}
+
+
+body {
+    background-color: #000000;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.login-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    animation: fadeInUp 0.8s ease-out;
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 2; 
+}
+
+
+
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 5px rgba(128, 128, 128, 0.5);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #ffffff;
+    opacity: 0.7;
+}
+
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+    padding: 12px 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 45px;
+}
+
+.alert-danger::before {
+    content: '\26A0';
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #dc3545;
+}
+
+
+.btn-primary {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: none;
+}
+
+.btn-primary:disabled {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-primary:not(:disabled) {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.btn-primary:not(:disabled):hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.btn-primary:not(:disabled):active {
+    transform: translateY(0);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Register Text */
+.register-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.register-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.register-link:hover {
+    color: rgba(128, 128, 128, 0.8);
+    text-decoration: underline;
+}
+
+
+.spinner-border {
+    margin-right: 5px;
+}
+
+
+@media (max-width: 576px) {
+    .login-form {
+        padding: 30px 20px;
+    }
+
+    .login-container h2 {
+        font-size: 22px;
+    }
+
+    .btn-primary {
+        font-size: 14px;
+    }
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate3d(0, 0, 0);
+    }
+}
+
+@keyframes breathingGlow {
+    0%,
+    100% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.37),
+            0 0 10px rgba(255, 255, 255, 0.5);
+        border-color: rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.37),
+            0 0 20px rgba(255, 255, 255, 1);
+        border-color: rgba(255, 255, 255, 1);
+    }
+}
